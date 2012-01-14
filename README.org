@@ -1,0 +1,12 @@
+* Bairstow
+** Description
+   Fortran program that factors given real polynomial into second
+   degree polynomials.
+** Does it work?
+   Kind of. Makefile requires one to edit paths to lapack and blas,
+   and I only compiled it with Intel Fortran. It does not have any
+   useful interface, and I tested it only with a handful of
+   polynomials. 
+** Author
+   Adam Michalik <adam@michalik.es>
+
