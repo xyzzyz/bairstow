@@ -30,7 +30,6 @@ contains
     type(polynomial) :: bairstow_iteration
     type(polynomial), intent(in) :: w, p
     type(polynomial) :: q1, q2, r1, r2
-    integer, dimension(:), allocatable :: ipiv
     real :: u, v, c, d, g, h
     real, dimension(2, 2) :: a
     real, dimension(0:1) :: y, cd
@@ -48,15 +47,9 @@ contains
     a(1,2) = -g
     a(2,1) = g*v
     a(2,2) = -h
-    allocate(ipiv(2))
-    call getrf(a, ipiv) ! rozklad LU
-    call getri(a, ipiv) ! odwrotnosc
-    !print *, "a = ", a
-    deallocate(ipiv)
-    cd(0) = r1%coeff(1)
-    cd(1) = r1%coeff(0)
-    call gemv(a, cd, y) ! y = A^-1 [c, d]
-    !print *, "y = ", y
+    y(0) = r1%coeff(1)
+    y(1) = r1%coeff(0)
+    call gesv(a, y)
     cd(0) = y(1)
     cd(1) = y(0)
     allocate(bairstow_iteration%coeff(0:2))
