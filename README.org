@@ -1,12 +1,24 @@
-* Bairstow
-** Description
-   Fortran program that factors given real polynomial into second
-   degree polynomials.
-** Does it work?
-   Kind of. Makefile requires one to edit paths to lapack and blas,
-   and I only compiled it with Intel Fortran. It does not have any
-   useful interface, and I tested it only with a handful of
-   polynomials. 
-** Author
-   Adam Michalik <adam@michalik.es>
-
+* bairstow
+** what is it?
+   this is Fortran program that factors given real polynomial into
+   second degree polynomials using Bairstow's method (that is,
+   guess the factor, divide by it, and hope that the result is zero
+   polynomial. it isn't? apply newton method)
+** what is it good for?
+   it's good if you have a high degree polynomial, you want to find
+   its zeros, and somehow you don't want to use any of the hundreds of
+   available tools.
+** does it work?
+   kind of. you need to edit paths to lapack and blas in makefile,
+   and i only compiled it with intel fortran. it does not have any
+   useful interface, and i tested it only with a handful of
+   polynomials.
+** usage
+   just run it, input is hardcoded (no, i'm not joking. no, i don't
+   care).
+** license
+   do with it whatever you want, i'll be happy if you let me know that
+   you find it interesting (maybe you do), or that you use it (wow,
+   what for?)
+** author
+   Adam Michalik <adamm@mimuw.edu.pl>
